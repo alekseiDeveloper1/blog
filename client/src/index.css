@@ -3,4 +3,11 @@
 }
 .header a{
     font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header a:hover {
+    text-decoration: underline;
 }
