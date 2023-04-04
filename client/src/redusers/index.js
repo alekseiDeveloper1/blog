@@ -40,6 +40,10 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'CREATE_POST':
+            return {...state, posts: [...state.posts, action.data]}
+        case 'REMOVE_POST':
+            return {...state, posts: [...state.posts.filter(post => post.id !== action.id)]}
         default:
             return state
     }

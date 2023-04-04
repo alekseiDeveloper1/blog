@@ -1,7 +1,13 @@
 import React from 'react';
 import {Card} from "react-bootstrap";
+import {useDispatch} from "react-redux";
 
 const PostItem = ({prop}) => {
+    const dispatch = useDispatch()
+
+    const removePost = (id) => {
+        dispatch({type: 'REMOVE_POST', id})
+    }
     return (
         <Card className="mt-3" style={{width: "70%"}}>
             <Card.Body>
@@ -12,7 +18,7 @@ const PostItem = ({prop}) => {
                     {prop.desc}
                 </Card.Text>
                 <Card.Link href="#">Add Archive</Card.Link>
-                <Card.Link href="#">Delete</Card.Link>
+                <Card.Link onClick={() => removePost(prop.id)}>Delete</Card.Link>
             </Card.Body>
         </Card>
     );
