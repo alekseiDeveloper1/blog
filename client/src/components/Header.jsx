@@ -11,7 +11,7 @@ const Header = () => {
                     <Col md={9} className="d-flex justify-content-end align-items-center">
                         <Link to='/'>Home</Link>
                         <Link to='/create'>Create Post</Link>
-                        <Link to='/favorite'>Favorite</Link>
+                        <Link to='/Archive'>Archive</Link>
                     </Col>
                 </Row>
             </Container>

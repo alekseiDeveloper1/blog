@@ -1,3 +1,5 @@
+import archive from "../pages/Archive";
+
 const initialState = {
     posts: [
         {
@@ -35,11 +37,17 @@ const initialState = {
             desc: 'description for the interesting post 5',
             img: 'https://img.freepik.com/free-vector/spring-landscape-scene_52683-56331.jpg'
         },
-    ]
+    ],
+    archive: []
 }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'ADD_ARCHIVE':
+            return {...state,
+                archive: [...state.archive, state.posts.find(post => post.id === action.id)],
+                posts: [...state.posts.filter(post => post.id !== action.id)]
+            }
         case 'CREATE_POST':
             return {...state, posts: [...state.posts, action.data]}
         case 'REMOVE_POST':
