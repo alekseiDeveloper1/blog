@@ -1,10 +1,14 @@
 import Post from "../models/post.js";
+import * as uuid from "uuid";
 
 class PostController {
     async create(req, res) {
         try {
-            const {title, desc, rating, img} = req.body
-            const post = await Post.create({title, desc, rating, img})
+            const {title, desc} = req.body
+            const {img} = req.files
+            let fileName = uuid.v4() + '.jpg'
+            img.mv('./static/' + fileName)
+            const post = await Post.create({title, desc, img: fileName})
             res.json(post)
         } catch (e) {
             res.status(500).json(e)

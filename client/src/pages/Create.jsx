@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import Header from "../components/Header";
 import {Button, Container, Form} from "react-bootstrap";
-import {useDispatch} from "react-redux";
+import ServicePosts from "../service";
 
 const Create = () => {
-
-    const dispatch = useDispatch()
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
@@ -17,13 +15,13 @@ const Create = () => {
 
     const addPost = (e) => {
         e.preventDefault()
-        const data = {
-            id: Date.now(),
-            title: title,
-            desc: desc,
-            img: file
-        }
-        dispatch({type: 'CREATE_POST', data})
+        const formData = new FormData()
+        formData.append('title', title)
+        formData.append('desc', desc)
+        formData.append('img', file)
+
+        const post = ServicePosts.createPost(formData)
+        console.log(post)
     }
 
     return (

@@ -22,7 +22,7 @@ const PostItem = ({prop}) => {
                     variant="top center"
                     style={{objectFit: "cover"}}
                     height="200px"
-                    src={prop.img}
+                    src={'http://localhost:5000' + '/' + prop.img}
                 />
                 <Card.Title>{prop.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{prop.data}</Card.Subtitle>

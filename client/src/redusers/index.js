@@ -14,8 +14,6 @@ export const reducer = (state = initialState, action) => {
                 archive: [...state.archive, state.posts.find(post => post.id === action.id)],
                 posts: [...state.posts.filter(post => post.id !== action.id)]
             }
-        case 'CREATE_POST':
-            return {...state, posts: [...state.posts, action.data]}
         case 'REMOVE_POST':
             return {...state, posts: [...state.posts.filter(post => post.id !== action.id)]}
         default:
