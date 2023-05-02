@@ -20,7 +20,7 @@ const PostList = () => {
     return (
         <Container>
             {posts.map(post =>
-                <PostItem key={post.id} prop={post} />
+                <PostItem key={post._id} prop={post} />
             )}
         </Container>
     );

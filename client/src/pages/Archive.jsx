@@ -5,12 +5,13 @@ import {useSelector} from "react-redux";
 
 const Archive = () => {
     const posts = useSelector((state) => state.archive)
+
     return (
         <>
             <Header />
             <Container>
                 {posts.map((post =>
-                    <Card key={post.id} className="mt-3" style={{width: "70%"}}>
+                    <Card key={post._id} className="mt-3" style={{width: "70%"}}>
                         <Card.Body>
                             <Card.Img variant="top center" style={{objectFit: "cover"}} height="200px"  src={post.img} />
                             <Card.Title>{post.title}</Card.Title>

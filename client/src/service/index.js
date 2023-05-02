@@ -13,6 +13,10 @@ class ServicePosts {
         const { data } = await this.$host.post('/post', post)
         return data
     }
+    async removePost(id) {
+        const { data } = await this.$host.delete(`/post/${id}`)
+        return data
+    }
 }
 
 export default new ServicePosts()
